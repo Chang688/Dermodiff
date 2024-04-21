@@ -213,8 +213,8 @@ class PreparePH2:
         # Parameters
         self.transforms = self.__get_transforms()
 
-        self.imgs_dir = os.path.join(self.data_dir, "trainx")
-        self.msks_dir = os.path.join(self.data_dir, "trainy")
+        self.imgs_dir = os.path.join(self.data_dir, "images")
+        self.msks_dir = os.path.join(self.data_dir, "masks")
 
         self.img_dirs = glob.glob(f"{self.imgs_dir}/*.{self.input_fex}")
         self.data_ids = [

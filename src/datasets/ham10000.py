@@ -226,8 +226,8 @@ class PrepareHAM10000:
         # Parameters
         self.transforms = self.__get_transforms()
 
-        self.imgs_dir = os.path.join(self.data_dir, "images")
-        self.msks_dir = os.path.join(self.data_dir, "masks")
+        self.imgs_dir = os.path.join(self.data_dir, "HAM10000_images")
+        self.msks_dir = os.path.join(self.data_dir, "HAM10000_segmentations_lesion_tschandl")
 
         self.img_dirs = glob.glob(f"{self.imgs_dir}/*.{self.input_fex}")
         self.data_ids = [

@@ -2,6 +2,7 @@ from utils.header import torch, nn, F, reduce, partial, rearrange
 from utils.helper_funcs import exists
 
 
+#这段代码实现了一种称为权重标准化（Weight Standardization）的方法，通过对卷积层的权重进行标准化处理，可以改善模型的训练效果，尤其在结合了分组归一化（Group Normalization）的情况下效果更佳。
 class WeightStandardizedConv2d(nn.Conv2d):
     """
     https://arxiv.org/abs/1903.10520

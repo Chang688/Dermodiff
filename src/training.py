@@ -26,6 +26,7 @@ warnings.filterwarnings('ignore')
 
 # ------------------- params --------------------
 argparser = get_argparser()
+
 args = argparser.parse_args(sys.argv[1:])
 
 config = load_config(args.config_file)

@@ -14,8 +14,8 @@ def get_ham10000(config, logger=None, verbose=False):
     DT = DiffusionTransform((INPUT_SIZE, INPUT_SIZE))
     AUGT = DataAugmentationTransform((INPUT_SIZE, INPUT_SIZE))
     
-    img_dir = "images"
-    msk_dir = "masks"
+    img_dir = "HAM10000_images"
+    msk_dir = "HAM10000_segmentations_lesion_tschandl"
     img_path_list = glob.glob(f"{config['dataset']['data_dir']}/{img_dir}/ISIC*.jpg")
     
     pixel_level_transform = AUGT.get_pixel_level_transform(config["augmentation"], img_path_list=img_path_list)

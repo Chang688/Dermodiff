@@ -18,10 +18,10 @@ class Baseline(nn.Module):
     def __init__(
         self,
         dim,
-        init_dim = None,
-        out_dim = None,
+        init_dim = 3,
+        out_dim = 1,
         dim_mults=(1, 2, 4, 8),
-        channels = 3,
+        channels = 4,
         self_condition = False,
         resnet_block_groups = 8,
         learned_variance = False,
@@ -39,7 +39,7 @@ class Baseline(nn.Module):
         input_channels = channels + (3 if self_condition else 0)
 
         init_dim = default(init_dim, dim)
-        self.init_conv = nn.Conv2d(input_channels, init_dim, 7, padding = 3)
+        self.init_conv = nn.Conv2d(4, init_dim, 7, padding = 3)
 
         dims = [init_dim, *map(lambda m: dim * m, dim_mults)]
         in_out = list(zip(dims[:-1], dims[1:]))
@@ -104,10 +104,10 @@ class Baseline(nn.Module):
         self.final_conv = nn.Conv2d(dim, self.out_dim, 1)
 
     def forward(self, x, time, x_self_cond = None):
-        if self.self_condition:
-            x_self_cond = default(x_self_cond, lambda: torch.zeros_like(x))
-            x = torch.cat((x_self_cond, x), dim = 1)
-
+        # if self.self_condition:
+        #     x_self_cond = default(x_self_cond, lambda: torch.zeros_like(x))
+        #     x = torch.cat((x_self_cond, x), dim = 1)
+        x = torch.cat((x_self_cond, x), dim = 1)
         x = self.init_conv(x)
         r = x.clone()
 

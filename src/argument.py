@@ -6,10 +6,10 @@ def get_argparser():
   parser = argparse.ArgumentParser(
     prog='DermoSegDiff',
     description='DermoSegDiff: A Boundary-aware Segmentation Diffusion Model for Skin Lesion Delineation',
-    epilog=''
+    epilog='../configs/isic2018/dermosegdiff/dsd_01.yaml'
   )
 
-  parser.add_argument('-c', '--config_file', type=str, required=True, help="")
+  parser.add_argument('-c', '--config_file', type=str, required=True, help="", default="../configs/isic2018/dermosegdiff/dsd_01.yaml")
   parser.add_argument('-n', '--model_name', type=str, help="")
   parser.add_argument('-s', '--input_size', type=int, help="")
   parser.add_argument('-b', '--batch_size', type=int, help="")

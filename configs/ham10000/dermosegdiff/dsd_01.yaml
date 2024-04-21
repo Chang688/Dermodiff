@@ -1,12 +1,12 @@
 run:
-  device: 'gpu'
+  device: 'cuda'
   save_imgs: "saved_imgs"
   writer_dir: "/path/to/folder/for/runs/ham10000" # tensorboard runs
   continue_training: false # whether to continue the training from the last epoch it was saved
 
 model:
   save_dir: '/path/to/save/models/ham10000'
-  name: 'dsd_h01' # the model will save and load with this config associated with this name.
+  name: 'ham_test' # the model will save and load with this config associated with this name.
   class: 'DermoSegDiff' # do not change this line unless you implement a new model inside models folder
   params: # the class arguments defined above
     dim_x: 128
@@ -31,7 +31,7 @@ dataset:
   input_size: 128
   name: "ham10000"
   class_name: "HAM10000DatasetFast" # do not change it unless you implement a new. this <Fast> class loads all files into ram at once to speed up data loading.
-  data_dir: "/path/to/ham/dataset/folder" # inside of this folder must exist <images> and <masks> folders. Inside of this folder the required numpy files will create inside of <np> folder.
+  data_dir: "E:/reproduction/data/dataverse_files" # inside of this folder must exist <images> and <masks> folders. Inside of this folder the required numpy files will create inside of <np> folder.
   number_classes: 2
   img_channels: 3
   msk_channels: 1

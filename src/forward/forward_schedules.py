@@ -56,7 +56,7 @@ class ForwardSchedule(object):
             self.betas * (1.0 - self.alphas_cumprod_prev) / (1.0 - self.alphas_cumprod)
         )
 
-    def __extract(self, a, t, x_shape):
+    def __extract(self, a, t, x_shape):  # 从数据a中取出t时刻的值
         batch_size = t.shape[0]
         out = a.gather(-1, t.cpu())
         return out.reshape(batch_size, *((1,) * (len(x_shape) - 1))).to(t.device)
