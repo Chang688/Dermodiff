@@ -1,4 +1,5 @@
-基于边界感知的皮肤病灶分割扩散模型
+### 基于边界感知的皮肤病灶分割扩散模型 
+#### 软件23-1常炜 472321725
 
 皮肤病变分割对皮肤病的早期发现和准确诊断起着至关重要的作用。消噪扩散概率模型(ddpm)最近因其出色的图像生成能力而受到关注。在这些进展的基础上，我们提出了DermoSegDiff，这是一个在学习过程中包含边界信息的皮肤病变分割的新框架。我们的方法引入了一种新的损失函数，在训练过程中对边界进行优先排序，逐渐降低其他区域的重要性。我们还介绍了一种新的基于u - net的去噪网络，该网络可以熟练地将网络内的噪声和语义信息集成在一起。在多个皮肤分割数据集上的实验结果表明，DermoSegDiff优于现有的基于CNN、transformer和diffusion的方法，显示了其在各种场景下的有效性和泛化性。
 <p align="center">
@@ -10,23 +11,9 @@
   <img width="800" alt="image" src="https://github.com/mindflow-institue/DermoSegDiff/assets/61879630/0919e613-972a-47ac-ac79-04a2ae51ed1e">
 </p>
 
-## Citation
-```bibtex
-@inproceedings{bozorgpour2023dermosegdiff,
-  title={DermoSegDiff: A Boundary-Aware Segmentation Diffusion Model for Skin Lesion Delineation},
-  author={Bozorgpour, Afshin and Sadegheih, Yousef and Kazerouni, Amirhossein and Azad, Reza and Merhof, Dorit},
-  booktitle={Predictive Intelligence in Medicine},
-  pages={146--158},
-  year={2023},
-  organization={Springer Nature Switzerland}
-}
-```
 <p align="center">
   <img width="620" alt="image" src="https://github.com/mindflow-institue/DermoSegDiff/assets/6207884/30bb1483-e9f8-44df-bede-13238df6f4f0">
 </p>
-
-## News
-- July 25, 2023: Accepted in MICCAI 2023 PRIME Workshop! 🥳
 
 ## How to use
 
@@ -64,7 +51,7 @@
   
   ```python src/training.py -c /path/to/config/file```
 
-  You can also overload some parameters while running the above command:
+你也可以在运行上面的命令时重载一些参数:
 
   ```bash
 usage: [-h] -c CONFIG_FILE [-n MODEL_NAME] [-s INPUT_SIZE] [-b BATCH_SIZE] [-l LEARNING_RATE]
