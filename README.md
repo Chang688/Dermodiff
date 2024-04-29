@@ -1,7 +1,6 @@
-# DermoSegDiff: A Boundary-aware Segmentation Diffusion Model for Skin Lesion Delineation <br> <span style="float: right"><sub><sup>MICCAI 2023 PRIME Workshop</sub></sup></span>
-[![arXiv](https://img.shields.io/badge/arXiv-2309.00108-b31b1b.svg)](https://arxiv.org/abs/2308.02959)
+基于边界感知的皮肤病灶分割扩散模型
 
-Skin lesion segmentation plays a critical role in the early detection and accurate diagnosis of dermatological conditions. Denoising Diffusion Probabilistic Models (DDPMs) have recently gained attention for their exceptional image-generation capabilities. Building on these advancements, we propose DermoSegDiff, a novel framework for skin lesion segmentation that incorporates boundary information during the learning process. Our approach introduces a novel loss function that prioritizes the boundaries during training, gradually reducing the significance of other regions. We also introduce a novel U-Net-based denoising network that proficiently integrates noise and semantic information inside the network. Experimental results on multiple skin segmentation datasets demonstrate the superiority of DermoSegDiff over existing CNN, transformer, and diffusion-based approaches, showcasing its effectiveness and generalization in various scenarios.
+皮肤病变分割对皮肤病的早期发现和准确诊断起着至关重要的作用。消噪扩散概率模型(ddpm)最近因其出色的图像生成能力而受到关注。在这些进展的基础上，我们提出了DermoSegDiff，这是一个在学习过程中包含边界信息的皮肤病变分割的新框架。我们的方法引入了一种新的损失函数，在训练过程中对边界进行优先排序，逐渐降低其他区域的重要性。我们还介绍了一种新的基于u - net的去噪网络，该网络可以熟练地将网络内的噪声和语义信息集成在一起。在多个皮肤分割数据集上的实验结果表明，DermoSegDiff优于现有的基于CNN、transformer和diffusion的方法，显示了其在各种场景下的有效性和泛化性。
 <p align="center">
   <em>Network</em><br/>
   <img width="600" alt="image" src="https://github.com/mindflow-institue/DermoSegDiff/assets/6207884/7619985e-d894-4ada-9125-9f40a32bae7d">
@@ -60,15 +59,8 @@ Skin lesion segmentation plays a critical role in the early detection and accura
   ```
   `pip install -r requirements.txt`
 
-  ### Model weights
-  You can download the learned weights in the following.
-   Dataset   | Model          | download link 
-  -----------|----------------|----------------
-   ISIC2018  | DermoSegDiff-A | [[Download](https://uniregensburg-my.sharepoint.com/:f:/g/personal/say26747_ads_uni-regensburg_de/EhsfBqr1Z-lCr6KaOkRM3EgBIVTv8ew2rEvMWpFFOPOi1w?e=ifo9jF)] 
-   PH2       | DermoSegDiff-B | [[Download](https://uniregensburg-my.sharepoint.com/:f:/g/personal/say26747_ads_uni-regensburg_de/EoCkyNc5yeRFtD-KTFbF0gcB8lbjMLY6t1D7tMYq7yTkfw?e=tfGHee)] 
-  
   ### Training
-  For the training stage you need to choose the relevant config file and modify it by setting the required directories and changing variables if it's desired, and from inside the `src` folder run the following command by pathing the prepared config file:
+对于训练阶段，你需要选择相关的配置文件，并通过设置所需的目录和更改变量来修改它，如果需要的话，从' src '文件夹中运行以下命令，通过路径准备好的配置文件:
   
   ```python src/training.py -c /path/to/config/file```
 
@@ -87,20 +79,5 @@ usage: [-h] -c CONFIG_FILE [-n MODEL_NAME] [-s INPUT_SIZE] [-b BATCH_SIZE] [-l L
  
   ```
   
-  ### Sampling & Test
-  For sampling and testing, you need to pass a relevant config file as same as training:
-  
-  ```python src/testing.py -c /path/to/config/file```
-  
-  To run with arbitrary weigths you need to change `testing -> model_weigths -> overload` to `true` and write the desired weights path in `testing -> model_weigths -> file_path`.
-  
-  ### Evaluation
-  
-  <p align="center">
-    <img width="800" alt="image" src="https://github.com/mindflow-institue/DermoSegDiff/assets/6207884/a12fdc20-1951-4af1-814f-6f51f24ea111">
-  </p>
 
-
-## References
-- https://github.com/lucidrains/denoising-diffusion-pytorch
-
+  
